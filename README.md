@@ -1,7 +1,8 @@
 # TFG_Beneharo_agua
 Repositorio para el código del TFG de Beneharo Nuñez Castellano
 
-## GPIO
+
+## BBB_GPIO
 
 ### Valores I/O
 
@@ -58,3 +59,14 @@ el kernell, y para pin-mux (y para localizar más facilmente el pin)
 es necesaria la posición del pin, es necesaria tabla para relacionar
 posición con número de pin, como figura en el apartado de
 *Pines considerados*.
+
+## BBB_I2C_LCD
+
+Clase para la interacción con LCD con controlador Hitachy HD44780U
+conectado por I2C a la BeagleBoard Black (BBB).
+
+Basado en el código [Arduino-LiquidCrystal-I2C-library][1]
+ de [fdebrabander](https://github.com/fdebrabander)
+
+[1]: https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+
