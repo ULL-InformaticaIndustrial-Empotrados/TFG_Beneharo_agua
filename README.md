@@ -1,6 +1,58 @@
 # TFG_Beneharo_agua
 Repositorio para el código del TFG de Beneharo Nuñez Castellano
 
+## Envío a BBB
+
+Para el envío del código a la BBB (por ejemplo la `bbb10`) usar comando:
+
+```bash
+rsync  -av --exclude .git --exclude build --exclude doc $PWD debian@bbb10:./
+```
+
+## Código
+
+El código fuente ha de estar en el directorio raiz.
+
+Las clases deben comenzar en mayúscula (`Clase`) y estar definidas en
+dos ficheros: `Clase.hpp` y `Clase.cpp`.
+
+El código de los programas (que contengan el `main`) deben estar en ficheros
+que comiencen por `test_` y con la extensión `.cpp`, como por ejemplo
+`test_GPIO_valor_1.cpp`.
+
+Los ficheros objeto (`.o`) y los ejecutables se generan en el subdirectorio
+`build/`.
+
+### Compilación
+
+La compilación se hace a través de `make` utilizando el fichero `Makefile`
+definido.
+
+Invocando `make` (sin argumentos) trata de hacer todos los ejecutables.
+
+Si deseamos hacer un ejecutable concreto (`test_GPIO_valor_1`) debebmos invocar
+
+```
+make build/test_GPIO_valor_1
+```
+
+ya que los ejecutables se crean en carpeta `buid/`.
+
+### Ejecución
+
+Para la ejecución invocar `build/test_GPIO_valor_1`
+
+## Documentación
+
+Las clases proporcionadas están documentadas con
+[Doxygen](http://www.doxygen.org/index.html).
+
+La documentación se genera invocando `make docu`.
+
+Se accedea a ella a partir de `doc/html/index.html`.
+
+Podemos incluir comentarios *doxygen* en nuevas clases o ejecutables.
+Al generar la documentación se incluirá dicha información nueva.
 
 ## BBB_GPIO
 
@@ -69,4 +121,5 @@ Basado en el código [Arduino-LiquidCrystal-I2C-library][1]
  de [fdebrabander](https://github.com/fdebrabander)
 
 [1]: https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+
 
