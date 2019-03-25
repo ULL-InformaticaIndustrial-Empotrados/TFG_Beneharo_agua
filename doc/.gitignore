@@ -1,0 +1,5 @@
+#Ignoramos todo salvo el propio .gitignore y Doxyfile
+*
+!.gitignore
+!Doxyfile
+
