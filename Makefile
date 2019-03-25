@@ -9,6 +9,9 @@
 ## Se consideran objetivos los ejecutables correpondientes
 ##  a los fichero con patron test_*.cpp
 ##
+##  Las clases deben comenzar en mayúscula (`Clase`) y estar definidas en
+##   dos ficheros: `Clase.hpp` y `Clase.cpp`.
+##
 ##  \cond
 ##
 
@@ -66,7 +69,7 @@ $(BDIR)/test_% : $(BDIR)/test_%.o
 #reglas para borrar los fichero generados
 # y dejar sólo los fuente
 clean :
-	rm -f $(BDIR)/*.o $(ejecutables) $(BDIR)/.depend* *.hpp.gch resumen.log core 
+	rm -f $(BDIR)/*.o $(ejecutables) $(BDIR)/.depend* *.hpp.gch resumen.log core
 	rm -rf $(DOCDIR)/*
 
 docu :
