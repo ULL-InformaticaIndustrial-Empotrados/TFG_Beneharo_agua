@@ -3,11 +3,14 @@ Repositorio para el código del TFG de Beneharo Nuñez Castellano
 
 ## Envío a BBB
 
-Para el envío del código a la BBB (por ejemplo la `bbb10`) usar comando:
+Para el envío del código a la BBB (por ejemplo la `bbb`) usar comando:
 
 ```bash
-rsync  -av --exclude .git --exclude build --exclude doc $PWD debian@bbb10:./
+rsync  -av --exclude .git --exclude build --exclude doc $PWD debian@bbb:./
 ```
+
+Creamos script `EnviaBBB.sh` para hacer la sincronización.
+
 
 ## Código
 
