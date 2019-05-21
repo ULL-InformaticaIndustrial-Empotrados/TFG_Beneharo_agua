@@ -1,5 +1,5 @@
 #include "BBB_GPIO_pin.hpp"
-
+//Programa prueba del gpio
 #include <iostream>
 #include <chrono>
 #include <thread>
