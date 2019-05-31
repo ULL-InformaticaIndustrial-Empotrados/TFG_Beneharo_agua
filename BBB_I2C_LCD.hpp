@@ -62,7 +62,8 @@ public:
   /**
    * Constructor
    *
-   * @param i2c_bus  BBB i2c bus number used for LCD (usually 1 or 2)
+   * @param i2c_bus  BBB i2c bus number used for LCD:
+   *          1 (for i2c-1 on pins P9_17 & P9_18) or 2 (for i2c-2 on pins P9_21 & P9_22)
    * @param lcd_addr  I2C slave address of the LCD display. Most likely printed on the
    *          LCD circuit board, or look in the supplied LCD documentation.
    * @param lcd_cols  Number of columns your LCD display has.
@@ -157,6 +158,7 @@ public:
   /**
    * Print int to display.
    *
+   * @param val  int value to show
    * @param base numeric base, default 10
    */
   void print(const int val, uint8_t base=10);
