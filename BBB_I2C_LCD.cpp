@@ -301,6 +301,10 @@ void BBB_I2C_LCD::print(const char c[]){
   }
 }
 
+void BBB_I2C_LCD::print(char c){
+  writeData(c);
+}
+
 void BBB_I2C_LCD::print(const int val, uint8_t base) {
 
   std::stringstream ss;

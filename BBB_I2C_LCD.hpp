@@ -155,6 +155,12 @@ public:
   void print(const char[]);
 
   /**
+   * Send one characters to display
+   */
+  void print(char);
+
+
+  /**
    * Print int to display.
    *
    * @param base numeric base, default 10
