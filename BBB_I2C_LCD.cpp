@@ -192,6 +192,17 @@ void BBB_I2C_LCD::scrollDisplayRight(void) {
   command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVERIGHT);
 }
 
+/** moves cursor one character left */
+void BBB_I2C_LCD::moveCursorLeft() {
+  command(LCD_CURSORSHIFT | LCD_CURSORMOVE | LCD_MOVELEFT);
+}
+
+/** moves cursor one character left */
+void BBB_I2C_LCD::moveCursorRight() {
+  command(LCD_CURSORSHIFT | LCD_CURSORMOVE | LCD_MOVERIGHT);
+}
+
+
 // This is for text that flows Left to Right
 void BBB_I2C_LCD::leftToRight(void) {
   _displaymode |= LCD_ENTRYLEFT;

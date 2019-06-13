@@ -123,27 +123,65 @@ public:
    */
   void cursor();
 
+  /** Scroll the display left without changing the RAM */
   void scrollDisplayLeft();
+
+  /** Scroll the display right without changing the RAM */
   void scrollDisplayRight();
-  void printLeft();
-  void printRight();
+
+  /** moves cursor one character left */
+  void moveCursorLeft();
+
+  /** moves cursor one character left */
+  void moveCursorRight();
+
+  /** Set Left to Right mode. Next character in the right of current one*/
   void leftToRight();
+
+  /** Set Right to Left mode. Next character in the left of current one*/
   void rightToLeft();
+
   void shiftIncrement();
   void shiftDecrement();
+
+  /** Turn backlight off */
   void noBacklight();
+
+  /** Turn backlight off */
   void backlight();
+
+  /** Gets backlight state (ture → on, false → off) */
   bool getBacklight();
+
+  /** set shift mode. Next character shift displays, cursor not moved */
   void autoscroll();
+  /** Disable shift mode. Next character move the cursor */
   void noAutoscroll();
+
+  /** Allows us to fill the first 8 CGRAM locations with custom characters */
   void createChar(uint8_t, uint8_t[]);
-  void setCursor(uint8_t, uint8_t);
+
+  /**
+   * Change de cursor position.
+   *
+   * @param col  new cursor column
+   * @param row  new cursor row
+   */
+  void setCursor(uint8_t col, uint8_t row);
+
+  /** Sends data to the display*/
   virtual std::size_t writeData(uint8_t);
+
+  /** Sends command to the display */
   void command(uint8_t);
 
+  /** Same of `blink()` */
   inline void blink_on() { blink(); }
+  /** Same of `noBlink()` */
   inline void blink_off() { noBlink(); }
+  /** Same of `cursor()` */
   inline void cursor_on() { cursor(); }
+  /** Same of `noCursor()` */
   inline void cursor_off() { noCursor(); }
 
 //// Compatibility API function aliases
