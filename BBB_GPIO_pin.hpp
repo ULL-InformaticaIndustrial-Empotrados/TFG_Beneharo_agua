@@ -15,7 +15,8 @@ class BBB_GPIO_pin {
 
 private:
 
-  friend class BBB_GPIO_Interrupts;
+  //friend -- access all private and protected members of the class
+  friend class BBB_GPIO_Interrupts; 
 
   struct pinDatum {
     std::string name;
