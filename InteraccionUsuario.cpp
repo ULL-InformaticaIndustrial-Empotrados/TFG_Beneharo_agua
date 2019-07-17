@@ -1,3 +1,4 @@
+//Definición de los métodos de la clase 'InteraccionUsuario'
 
 #include "Teclado.hpp"
 #include "InteraccionUsuario.hpp"
@@ -245,4 +246,32 @@ std::string InteraccionUsuario::pantallaCodigoSecreto(std::string vivienda){ //c
   }
   return numeroVivienda;
 }
+
+
+// 4ª pantalla -- Pantalla numero de litros
+std::string pantallaNumeroPulsos(std::string vivienda){
+
+
+  std::string numPulsos;
+
+  _lcd.clear();
+  _lcd.begin();
+  _lcd.backlight(); //Enciende la luz del lcd
+
+  //Vivienda seleccionada, al principio
+  _lcd.setCursor(0, 0); //En la fila 0, apartir de posicion 5
+  _lcd.print("Vivienda: ");
+  _lcd.setCursor(10, 0);
+  _lcd.print(vivienda.c_str()); //de string a char*, para imprimir por display lcd el char*
+
+
+  //Numero de litros
+  _lcd.setCursor(0, 2); //En la fila 0, apartir de posicion 5
+  _lcd.print("Litros: "); //Imprime
+  _lcd.blink(); //Mostrar cursor parpadeante
+
+}
+
+
+
 

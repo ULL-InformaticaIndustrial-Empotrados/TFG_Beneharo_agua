@@ -1,19 +1,11 @@
+//Declaración de la clase 'Teclado'
+
 #ifndef _TECLADO_
 #define _TECLADO_
 
-#include <cstdint> //int8_t, ...
-#include <string>
-#include <vector>
 #include "BBB_GPIO_pin.hpp" //Incluye la clase
 #include "BBB_GPIO_Interrupts.hpp"
-#include <string>
 
-
-//Ahora hay que hacer una función que lea teclas, junto con el main
-
-//Después hay que crear una clase con .hpp y .cpp
-
-//Se busca hacer lo mismo que hasta ahora pero haciendo uso de std::string en vez de std::cout
 
 
 class Teclado {

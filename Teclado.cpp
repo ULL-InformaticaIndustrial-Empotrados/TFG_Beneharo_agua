@@ -1,3 +1,4 @@
+//Definición de los métodos de la clase 'Teclado'
 
 #include "Teclado.hpp" //Incluye la clase 'BBB_I2C_Teclado'
 #include "BBB_GPIO_pin.hpp"
@@ -8,9 +9,10 @@
 #include <thread>
 
 
-//Para conectar los pines en otros sitios del GPIO de la BBB, por ejemplo al pasarle dicho trabajo a otro técnico
-//Teclado::Teclado(std::string nombreC1, std::string nombreC2, std::string nombreC3, std::string nombreF1
-//  std::string nombreF2, std::string nombreF3, std::string nombreF4) : _c1(nombreC1), _c2(nombreC2), _c3("P8_38"), _f1("P8_40")
+/* Para conectar los pines en otros sitios del GPIO de la BBB, por ejemplo al pasarle dicho trabajo a otro técnico
+ * Teclado::Teclado(std::string nombreC1, std::string nombreC2, std::string nombreC3, std::string nombreF1
+ * std::string nombreF2, std::string nombreF3, std::string nombreF4) : _c1(nombreC1), _c2(nombreC2), _c3("P8_38"), _f1("P8_40")
+*/
 
 
 //Constructor con los pines -- Inicializadores de los pines
@@ -55,7 +57,6 @@ Teclado::Teclado() : _c1("P8_34"), _c2("P8_36"), _c3("P8_38"), _f1("P8_40"),
 
 
 char Teclado::obtenerTecla(int msTimeout){
-  //int cuantoTiempo;
 
  //Con flancos
   BBB_GPIO_Interrupts intrr; //Objeto de la clase 'BBB_GPIO_Interrupts'
@@ -86,15 +87,7 @@ char Teclado::obtenerTecla(int msTimeout){
         std::cerr << "Time out" << std::endl; //Mensaje de depuración 'fuera de tiempo'
         return 'T'; //Devuelve 'T' (fuera de tiempo) si no se ha pulsado ninguna tecla
   }
-/*
-  //Finaliza cuando todas las filas estén a '0', es decir, cuando todas las teclas estén sin pulsar
-  while( (_f1.getValue() == 0) && (_f2.getValue() == 0)
-      && (_f3.getValue() == 0) && (_f4.getValue() == 0) ){
-        //std::this_thread::sleep_for(std::chrono::milliseconds(2)); //Es ineficiente
-        intrr.edgeWait(2000); //Espera sólo hasta que algunos de éstos flancos cambien
-        std::cerr << "Se detecto flanco" << std::endl;
-  }
-*/
+
 
   std::this_thread::sleep_for(std::chrono::milliseconds(20)); //Esperamos 20 mseg para evitar los rebotes de los pulsadores
 

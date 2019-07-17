@@ -1,10 +1,12 @@
-//Código que contiene el main(), comienza por test_
+// int main() de la clase 'Teclado'
 
 #include "Teclado.hpp"
 #include <iostream>
 
-//Para usar otros pines
-//int main("especificar los pines nuevos aqui")
+/*
+    Para usar otros pines
+    int main("especificar los pines nuevos aqui")
+*/
 
 int main() {
 
@@ -16,6 +18,8 @@ int main() {
 
     std::cout << "Se pulsó la tecla " << key << std::endl;
   }
+
+  return 0;
 }
 
 
