@@ -3,16 +3,20 @@
 #include "Teclado.hpp"
 #include <iostream>
 
+
 /*
     Para usar otros pines
     int main("especificar los pines nuevos aqui")
 */
 
+
+
+
 int main() {
 
   Teclado tec; //Objeto-atributo de la clase 'Teclado'
 
-  while(1) {
+  while(1) { //Bucle infinito
 
     char key = tec.obtenerTecla(5000);
 

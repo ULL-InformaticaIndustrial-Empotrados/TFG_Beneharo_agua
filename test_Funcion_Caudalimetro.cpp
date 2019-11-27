@@ -4,13 +4,14 @@
 #include <iostream>
 #include <thread>
 
+#define numLitros 800
 
 int main(){
 
   std::cerr << "Comienzo" << std::endl;
 
 
-  Caudalimetro caud;
+  Caudalimetro caud; //Objeto de la clase Caudalimetro
 
   std::cerr << "Bucle" << std::endl;
 

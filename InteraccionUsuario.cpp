@@ -1,14 +1,11 @@
 //Definición de los métodos de la clase 'InteraccionUsuario'
 
-#include "Teclado.hpp"
 #include "InteraccionUsuario.hpp"
 #include <iostream>
 #include <chrono>
-#include <thread>
-#include <string>
-#include <sstream>
 
-//Constructor con inicializador con los parámetros
+
+//Constructor con inicializador de los parámetros
 InteraccionUsuario::InteraccionUsuario() : _lcd(1, 0x3f, 20, 4){
 
 }
@@ -62,6 +59,7 @@ std::string InteraccionUsuario::pantallaNumeroVivienda(){
 
   while(estado != 4){
       char tecla = _pul.obtenerTecla();
+      //char tecla = _pul.obtenerTecla(int msTimeout = 15000); //En cualquier momento, si no se pulsa tecla tras 15 seg, retorna a pantalla 'adios'
 
       switch(estado){
 
@@ -140,7 +138,7 @@ std::string InteraccionUsuario::pantallaCodigoSecreto(std::string vivienda){ //c
   _lcd.backlight(); //Enciende la luz del lcd
 
   //Vivienda seleccionada, al principio
-  _lcd.setCursor(0, 0); //En la fila 0, apartir de posicion 5
+  _lcd.setCursor(0, 0); //En la fila 0, apartir de posicion 0
   _lcd.print("Vivienda: ");
   _lcd.setCursor(10, 0);
   _lcd.print(vivienda.c_str()); //de string a char*, para imprimir por display lcd el char*
@@ -213,21 +211,21 @@ std::string InteraccionUsuario::pantallaCodigoSecreto(std::string vivienda){ //c
           break;
 
         case 3: //Estado 3 teclas
-        if(tecla == '*')
-          estado = 3; //No escribimos nada
-        else if(tecla == '#'){
-          estado = 2;
-          _lcd.moveCursorLeft();
-          _lcd.print(" ");
-          _lcd.moveCursorLeft();
-          numeroVivienda.pop_back();
-        }
-        else{
-          estado = 4;
-          numeroVivienda.push_back(tecla);
-          _lcd.print('*');
-        }
-        break;
+          if(tecla == '*')
+            estado = 3; //No escribimos nada
+          else if(tecla == '#'){
+            estado = 2;
+            _lcd.moveCursorLeft();
+            _lcd.print(" ");
+            _lcd.moveCursorLeft();
+            numeroVivienda.pop_back();
+          }
+          else{
+            estado = 4;
+            numeroVivienda.push_back(tecla);
+            _lcd.print('*');
+          }
+          break;
 
         case 4: //Estado 4 teclas
           if(tecla == '*')
@@ -244,33 +242,81 @@ std::string InteraccionUsuario::pantallaCodigoSecreto(std::string vivienda){ //c
           break;
       }
   }
+
+
+
   return numeroVivienda;
 }
 
 
 // 4ª pantalla -- Pantalla numero de litros
-std::string pantallaNumeroPulsos(std::string vivienda){
 
+//std::string InteraccionUsuario::pantallaConsumoLitros(std::string vivienda, Caudalimetro& cau){
+std::string InteraccionUsuario::pantallaConsumoLitros(std::string vivienda){
 
-  std::string numPulsos;
+  std::string litros;
+
 
   _lcd.clear();
   _lcd.begin();
   _lcd.backlight(); //Enciende la luz del lcd
 
   //Vivienda seleccionada, al principio
-  _lcd.setCursor(0, 0); //En la fila 0, apartir de posicion 5
+  _lcd.setCursor(0, 0); //En la fila 0, apartir de posicion 0
   _lcd.print("Vivienda: ");
   _lcd.setCursor(10, 0);
   _lcd.print(vivienda.c_str()); //de string a char*, para imprimir por display lcd el char*
 
 
+
   //Numero de litros
-  _lcd.setCursor(0, 2); //En la fila 0, apartir de posicion 5
-  _lcd.print("Litros: "); //Imprime
+  _lcd.setCursor(0, 2); //En la fila 0, apartir de posicion
+  _lcd.print("Litros: "); //Imprime "Litros: "
   _lcd.blink(); //Mostrar cursor parpadeante
 
+  //Resetear el caudalimetro
+  //Meterse en un bucle
+  //Dentro del bucle, pedir los litros, actualizar litros en pantalla
+  //Esperar tecla, durane 1 seg
+  //Salir del bucle si la tecla es '*'
+
+
+  return litros;
 }
+
+
+
+//Actualiza solo el número de litros, en la posicion especificada
+std::string InteraccionUsuario::actualizaConsumo(){
+
+  std::string numLitros;
+/*
+  _lcd.clear();
+  _lcd.begin();
+  _lcd.backlight(); //Enciende la luz del lcd
+
+  _lcd.setCursor(8, 2); //Fila 2, posición 8
+  _lcd.print("-");
+*/
+
+  return numLitros;
+}
+
+
+//Pantalla de despedida
+std::string InteraccionUsuario::adios(){
+  std::string mensaje;
+
+  _lcd.clear();
+  _lcd.begin();
+  _lcd.backlight(); //Enciende la luz del lcd
+  _lcd.setCursor(7, 2);
+  _lcd.print("Adios.");
+
+  return mensaje;
+}
+
+
 
 
 

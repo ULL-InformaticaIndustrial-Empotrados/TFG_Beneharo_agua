@@ -30,7 +30,8 @@ class Teclado {
     //Constructor alternativo para usar pines diferentes del GPIO
     // Teclado(std::string monbreC1, std::string monbreC2);
 
-    char obtenerTecla(int msTimeout = -1); //Por defecto, tiempo infinito
+    //char obtenerTecla(int msTimeout = -1); //Por defecto, tiempo infinito
+    char obtenerTecla(int msTimeout = -1);
 
 
 

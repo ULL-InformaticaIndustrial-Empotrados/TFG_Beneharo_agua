@@ -1,9 +1,6 @@
 //Definición de los métodos de la clase 'Teclado'
 
 #include "Teclado.hpp" //Incluye la clase 'BBB_I2C_Teclado'
-#include "BBB_GPIO_pin.hpp"
-#include "BBB_GPIO_Interrupts.hpp"
-
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -21,7 +18,7 @@ Teclado::Teclado() : _c1("P8_34"), _c2("P8_36"), _c3("P8_38"), _f1("P8_40"),
 
 
 
-	//Columnas
+	//Columnas -> Configuradas como salidas (out) y activadas (1)
   _c1.setDirection("out");
   _c1.setValue(1);
 
@@ -34,9 +31,9 @@ Teclado::Teclado() : _c1("P8_34"), _c2("P8_36"), _c3("P8_38"), _f1("P8_40"),
 
 
 
-  //Filas configuradas como entradas con 'pull-down' ('0' cuando está al aire)
+  //Filas configuradas como entradas (in), con 'pull-down' ('0' cuando está al aire)
   _f1.setDirection("in"); //Entrada
-  _f1.setPullMode("gpio_pd"); //Modo usado
+  _f1.setPullMode("gpio_pd"); //Modo usado -> pull-down (pd)
   _f1.setActiveLow(false); //Activar la lógica desordenada del pulsador pull_down para poner a '0'
 
 
@@ -61,12 +58,14 @@ char Teclado::obtenerTecla(int msTimeout){
  //Con flancos
   BBB_GPIO_Interrupts intrr; //Objeto de la clase 'BBB_GPIO_Interrupts'
 
-  intrr.addPin(_f1); //Añade los pines que interesan, las filas
+  //Añade los pines que interesan, las filas
+  intrr.addPin(_f1);
   intrr.addPin(_f2);
   intrr.addPin(_f3);
   intrr.addPin(_f4);
 
-  _f1.setEdge("rising"); //"rising" -> flanco de subida
+  //"rising" -> flanco de subida
+  _f1.setEdge("rising");
   _f2.setEdge("rising");
   _f3.setEdge("rising");
   _f4.setEdge("rising");

@@ -5,8 +5,8 @@
 
 #include "BBB_I2C_LCD.hpp"
 #include "Teclado.hpp"
-
 #include <string>
+
 
 
 /*Es mejor que sea el programa principal el que cree los objetos LCD
@@ -18,23 +18,30 @@
 */
 
 
+
+
 class InteraccionUsuario{
 
-  protected: //Atributos
+  protected: //Es comun a todas las clases
+
     BBB_I2C_LCD _lcd; //Atributo global de la clase 'LCD'
     Teclado _pul; //Atributo global de la clase 'Teclado'
 
 
 
+
   public: //Metodos
 
-    InteraccionUsuario();
+    InteraccionUsuario(); //Constructor de la clase
 
     void pantallaInicio();
 
     std::string pantallaNumeroVivienda();
-    std::string pantallaCodigoSecreto(std::string vivienda); //Le pasamos como parámetro un string
-    std::string pantallaNumeroPulsos(std::string vivienda);
+    std::string pantallaCodigoSecreto(std::string vivienda); //Mostramos también el numero de vivienda
+    std::string pantallaConsumoLitros(std::string vivienda); //Mostramos también el numero de vivienda
+    std::string actualizaConsumo();
+    std::string adios();
+
 
 };
 
