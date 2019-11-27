@@ -64,7 +64,7 @@ $(BDIR)/%.o : %.cpp
 	$(CC) -c -o $@ $<
 
 $(BDIR)/test_% : $(BDIR)/test_%.o
-	$(CC) -lpthread -o  $@ $^
+	$(CC) -pthread -o  $@ $^
 
 #reglas para borrar los fichero generados
 # y dejar sólo los fuente
