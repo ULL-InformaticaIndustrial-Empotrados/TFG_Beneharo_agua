@@ -3,14 +3,14 @@
 #ifndef _TECLADO_
 #define _TECLADO_
 
-#include "BBB_GPIO_pin.hpp" //Incluye la clase
+#include "BBB_GPIO_pin.hpp"
 #include "BBB_GPIO_Interrupts.hpp"
 
 
 
 class Teclado {
 
-	protected: //Atributos
+	protected: //Es común a todas las clases
 
     BBB_GPIO_pin _c1;
     BBB_GPIO_pin _c2;
@@ -23,9 +23,9 @@ class Teclado {
 
 
 
-	public: //Métodos
+	public:
 
-		Teclado(); //Constructor por defecto
+		Teclado(); //Constructor por defecto de la clase
 
     //Constructor alternativo para usar pines diferentes del GPIO
     // Teclado(std::string monbreC1, std::string monbreC2);

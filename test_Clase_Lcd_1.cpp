@@ -66,41 +66,6 @@ void litrosHistorico(std::string vivienda, Caudalimetro& cau){
 
 
 
-//Función que crea un fichero de texto, con los litros totales acumulados
-void litrosAcumulados(std::string vivienda, Caudalimetro& cau){
-
-  std::map<std::string,float> datos;
-  float cuantosLitros = cau.getLitros();
-
-
-  std::ofstream fout;
-  fout.open("litrosAcumulados.txt");
-
-
-  if(fout.fail()){
-    std::cout << "El archivo no se creó." << std::endl;
-
-  }else{
-    std::cout << "Se ha creado archivo de consumo acumulado." << std::endl;
-
-    for(unsigned i = 0; i<datos.size();i++){
-
-      cuantosLitros++;
-
-      fout << datos[vivienda];
-    }
-
-  }
-}
-
-
-
-
-
-//MÁQUINA DE ESTADOS PRINCIPAL
-//Opcional ponerla como función aqui para mas claridad, aunque tiene que ejecutarse siempre
-//con el while(1), entonces quizás mejor dejarla donde está
-
 
 int main() {
 
@@ -116,28 +81,6 @@ int main() {
   cerrarValvula(cau, val); //Llamada a la función
 
 
-/*
-  //Mas adelante realizar un fichero de texto con todas las claves y llamarlo
-  //El fichero tiene que ser de la forma:
-  //101 1234
-  //102 2233
-  //Y se lee como string
-  codigos["101"] = "1234";
-  codigos["102"] = "2233";
-  codigos["103"] = "6657";
-  codigos["104"] = "8923";
-  codigos["105"] = "8887";
-  codigos["201"] = "0089";
-  codigos["202"] = "0349";
-  codigos["203"] = "4382";
-  codigos["204"] = "2190";
-  codigos["205"] = "3970";
-  codigos["301"] = "3372";
-  codigos["302"] = "4509";
-  codigos["303"] = "6503";
-  codigos["304"] = "7721";
-  codigos["305"] = "5576";
-*/
 
   //Leer fichero viviendas-claves
   std::ifstream fichero("fclaves.txt");
@@ -150,8 +93,6 @@ int main() {
   fichero >> clave;
 
   while(fichero.good()) {
-    //std::cout << "La vivienda es '" << vivienda << "'" << std::endl;
-    //std::cout << "El codigo es '" << clave << "'" << std::endl;
 
     codigos[vivienda] = clave;
 
@@ -164,7 +105,7 @@ int main() {
 
 
   //MÁQUINA DE ESTADOS PRINCIPAL
-  //Máquina de estados 3 -- Correspondiente al número de intentos de vivienda y clave
+  //Máquina de estados 3 -- Funcionamiento general de las anteriores máquinas de estados en conjunto
   int estado = 0;
 
 
@@ -255,7 +196,6 @@ int main() {
           std::this_thread::sleep_for(std::chrono::milliseconds(7000));
           estado = 5;
           std::cerr << "Fin de sesión." << std::endl;
-          litrosAcumulados(vivienda, cau);
         }
         break;
 

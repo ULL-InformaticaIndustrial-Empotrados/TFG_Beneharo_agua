@@ -1,6 +1,6 @@
 //Definición de los métodos de la clase 'Teclado'
 
-#include "Teclado.hpp" //Incluye la clase 'BBB_I2C_Teclado'
+#include "Teclado.hpp"
 #include <iostream>
 #include <chrono>
 #include <thread>
@@ -180,7 +180,4 @@ char Teclado::obtenerTecla(int msTimeout){
 
   return teclaPulsada;
 }
-
-
-
 

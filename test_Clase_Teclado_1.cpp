@@ -18,7 +18,7 @@ int main() {
 
   Teclado tec; //Objeto-atributo de la clase 'Teclado'
 
-  while(1) { //Bucle infinito
+  while(1) {
 
     char key = tec.obtenerTecla(MS_OBTENER_TECLA);
 

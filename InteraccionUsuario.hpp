@@ -10,20 +10,10 @@
 
 
 
-/*Es mejor que sea el programa principal el que cree los objetos LCD
-  y Teclado, y el constructor de la clase que está creando los reciba como
-  referencia y los guarde como 2 atributos, ya que, sólo puede haber un
-  objeto LCD y Teclado en el programa. Seguro que los vas a necesitar en
-  otras clases. Si los "creas" como atributos de esa clase después los
-  tienes que "sacar" para que los usen otras clases.
-*/
-
-
-
 
 class InteraccionUsuario{
 
-  protected: //Es comun a todas las clases
+  protected:
 
     BBB_I2C_LCD _lcd; //Atributo global de la clase 'LCD'
     Teclado _pul; //Atributo global de la clase 'Teclado'
@@ -32,14 +22,14 @@ class InteraccionUsuario{
 
 
 
-  public: //Metodos
+  public:
 
-    InteraccionUsuario(); //Constructor de la clase
+    InteraccionUsuario();
 
     void pantallaInicio();
     std::string pantallaNumeroVivienda();
-    std::string pantallaCodigoSecreto(std::string vivienda); //Mostramos también el numero de vivienda
-    std::string pantallaConsumoLitros(std::string vivienda, Caudalimetro& cau); //Mostramos también el numero de vivienda y litros (mediante objeto de la clase caudalimetro)
+    std::string pantallaCodigoSecreto(std::string vivienda); //Se muestra el numero de vivienda
+    std::string pantallaConsumoLitros(std::string vivienda, Caudalimetro& cau); //Se muestra el numero de vivienda y litros (mediante objeto de la clase caudalimetro)
     void viviendaCorrecta();
     void viviendaIncorrecta();
     void claveIncorrecta();

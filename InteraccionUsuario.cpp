@@ -69,7 +69,9 @@ std::string InteraccionUsuario::pantallaNumeroVivienda(){
 
   while(estado != 4){
 
-      char tecla = _pul.obtenerTecla(5000); //Desde que se deja de pulsar tecla (durante 15 seg.), si no se accede a siguiente pantalla, sale a la pantalla de inicio
+
+      //Time out de 15 seg. Desde que se deja de pulsar tecla durante 15 seg., sale a la pantalla de inicio
+      char tecla = _pul.obtenerTecla(15000);
 
       std::cout << "La variable tiene valor " << estado << std::endl;
 
@@ -246,7 +248,9 @@ std::string InteraccionUsuario::pantallaCodigoSecreto(std::string vivienda){ //c
 
 
   while(estado != 5){
-      char tecla = _pul.obtenerTecla(5000); //Desde que se deja de pulsar tecla (durante 15 seg.), si no se accede a siguiente pantalla, sale a la pantalla de inicio
+
+      //Time out (15 segundos) desde que se deja de pulsar tecla, sale a la pantalla de inicio
+      char tecla = _pul.obtenerTecla(15000);
 
       std::cout << "Estoy en estado " << estado << " y tecla " << tecla << std::endl;
 
