@@ -14,7 +14,7 @@ class Valvula {
   protected:
     BBB_GPIO_pin _v1;
     BBB_GPIO_pin _v2;
-    unsigned numMillis = 0;
+    unsigned numMillis = 30;
 
 
 

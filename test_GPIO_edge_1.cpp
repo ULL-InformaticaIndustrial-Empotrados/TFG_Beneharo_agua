@@ -22,6 +22,8 @@ int main() {
   p1.setActiveLow(false);
   std::cout <<  "Modo de activeLow  '" << p1.isActiveLow() << "'" << std::endl;
 
+
+  //Agregar 1 interrupcion
   p1.setEdge("rising");
 
   BBB_GPIO_Interrupts intrr;
@@ -36,3 +38,5 @@ int main() {
   }
 
 }
+
+

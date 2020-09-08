@@ -5,6 +5,7 @@
 
 #include "BBB_I2C_LCD.hpp"
 #include "Teclado.hpp"
+#include "Caudalimetro.hpp"
 #include <string>
 
 
@@ -30,16 +31,20 @@ class InteraccionUsuario{
 
 
 
+
   public: //Metodos
 
     InteraccionUsuario(); //Constructor de la clase
 
     void pantallaInicio();
-
     std::string pantallaNumeroVivienda();
     std::string pantallaCodigoSecreto(std::string vivienda); //Mostramos también el numero de vivienda
-    std::string pantallaConsumoLitros(std::string vivienda); //Mostramos también el numero de vivienda
-    std::string actualizaConsumo();
+    std::string pantallaConsumoLitros(std::string vivienda, Caudalimetro& cau); //Mostramos también el numero de vivienda y litros (mediante objeto de la clase caudalimetro)
+    void viviendaCorrecta();
+    void viviendaIncorrecta();
+    void claveIncorrecta();
+    void tiempoLimite();
+    std::string finSesion(std::string vivienda, Caudalimetro& cau);
     std::string adios();
 
 

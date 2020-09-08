@@ -1,10 +1,9 @@
 
 #include "Caudalimetro.hpp"
-
 #include <iostream>
 #include <thread>
 
-#define numLitros 800
+
 
 int main(){
 

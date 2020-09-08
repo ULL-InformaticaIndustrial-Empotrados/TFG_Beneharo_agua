@@ -55,6 +55,7 @@ Teclado::Teclado() : _c1("P8_34"), _c2("P8_36"), _c3("P8_38"), _f1("P8_40"),
 
 char Teclado::obtenerTecla(int msTimeout){
 
+
  //Con flancos
   BBB_GPIO_Interrupts intrr; //Objeto de la clase 'BBB_GPIO_Interrupts'
 
@@ -80,11 +81,13 @@ char Teclado::obtenerTecla(int msTimeout){
   _c3.setValue(1);
 
   intrr.edgeWait(msTimeout); //Espera sólo hasta que algunos de éstos flancos cambien
+
   if( (_f1.getValue() == 0) && (_f2.getValue() == 0)
       && (_f3.getValue() == 0) && (_f4.getValue() == 0) ){
 
         std::cerr << "Time out" << std::endl; //Mensaje de depuración 'fuera de tiempo'
         return 'T'; //Devuelve 'T' (fuera de tiempo) si no se ha pulsado ninguna tecla
+
   }
 
 

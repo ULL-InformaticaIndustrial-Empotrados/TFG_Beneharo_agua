@@ -55,7 +55,7 @@ void Caudalimetro::cuentaPulsos(){
 }
 
 float Caudalimetro::getLitros(){
-  return getNumeroPulsos() / pulsosPorLitro;
+  return getNumeroPulsos() / pulsosPorLitro; //Devuelve el número de litros
 }
 
 

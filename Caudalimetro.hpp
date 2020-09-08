@@ -8,6 +8,7 @@
 
 
 
+
 //A la clase Caudalimetro el string(P8_36) se le pase como parámetro al constructor.
 
 
@@ -20,14 +21,14 @@ class Caudalimetro {
     BBB_GPIO_Interrupts _intrr;//Objeto de la clase 'BBB_GPIO_Interrupts'
     void cuentaPulsos(); //Función privada
     std::thread* _pthilo1; //Puntero de tipo thread
-    float pulsosPorLitro = 800;
+    float pulsosPorLitro = 800; //Cantidad ya calculada a mano llenando una botella de 1 litro
 
 
 
   public:
 
     Caudalimetro();
-    unsigned getNumeroPulsos(); //Lo que devuelve es unsigned
+    unsigned getNumeroPulsos(); //Lo que devuelve es unsigned (valor positivo siempre)
     float getLitros();
     void resetNumeroPulsos();
 

@@ -14,6 +14,8 @@ int main() {
   p1.setDirection("out");
   p1.setValue(1);
 
+
+
   BBB_GPIO_pin p2("P9_41");
 
   std::cout << "p2 es pin '" << p2.getPosition() << "' con número "
@@ -21,6 +23,8 @@ int main() {
 
   p2.setDirection("out");
   p2.setValue(1);
+
+
 
   bool va = false;
   for (int i = 0; i < 10; i++) {
@@ -41,3 +45,5 @@ int main() {
       << "'" << std::endl;
 
 }
+
+

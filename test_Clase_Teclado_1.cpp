@@ -3,6 +3,8 @@
 #include "Teclado.hpp"
 #include <iostream>
 
+#define MS_OBTENER_TECLA 15000
+
 
 /*
     Para usar otros pines
@@ -18,7 +20,7 @@ int main() {
 
   while(1) { //Bucle infinito
 
-    char key = tec.obtenerTecla(5000);
+    char key = tec.obtenerTecla(MS_OBTENER_TECLA);
 
     std::cout << "Se pulsó la tecla " << key << std::endl;
   }
